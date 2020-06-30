@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: install
-      uses: jbrunton/test-gh-action
+      uses: jbrunton/test-gh-action@v1
 
     - name: Get the output time
       run: kbld version
