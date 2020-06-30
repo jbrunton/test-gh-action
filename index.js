@@ -11,6 +11,7 @@ async function main() {
   try {
     await main();
   } catch(e) {
+    console.log(e);
     core.setFailed(e.message);
   }
 })()
