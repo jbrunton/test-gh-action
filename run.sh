@@ -2,4 +2,5 @@
 
 set -e
 
-ncc build index.js
+./build.sh
+act
