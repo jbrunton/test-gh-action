@@ -2,7 +2,7 @@ const installer = require('./installer');
 
 (async function() {
   try {
-    await installer.install();
+    console.log(`Hello, World!`);
   } catch(e) {
     console.log(e);
     core.setFailed(e.message);

@@ -360,7 +360,7 @@ const installer = __webpack_require__(503);
 
 (async function() {
   try {
-    await installer.install();
+    console.log(`Hello, World!`);
   } catch(e) {
     console.log(e);
     core.setFailed(e.message);
