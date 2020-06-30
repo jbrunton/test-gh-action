@@ -1,15 +1,8 @@
-const core = require('@actions/core');
-const tc = require('@actions/tool-cache');
-
-async function main() {
-  const kbldPath = await tc.downloadTool('https://github.com/k14s/kbld/releases/download/v0.23.0/kbld-linux-amd64');  
-  const cachedPath = await tc.cacheFile(kbldPath, 'kbld', '0.23.0');
-  core.addPath(cachedPath);
-}
+const installer = require('./installer');
 
 (async function() {
   try {
-    await main();
+    await installer.install();
   } catch(e) {
     console.log(e);
     core.setFailed(e.message);
