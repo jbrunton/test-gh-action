@@ -15,6 +15,11 @@ async function install() {
   }
 }
 
+async function test() {
+  const response = await axios.get('http://example.com/');
+  return response
+}
+
 module.exports = {
   install: install,
   test: test
