@@ -11,6 +11,6 @@ async function main() {
   try {
     await main();
   } catch(e) {
-    ore.setFailed(e.message);
+    core.setFailed(e.message);
   }
 })()
