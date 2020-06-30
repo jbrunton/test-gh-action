@@ -1,15 +1,10 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
+const tc = require('@actions/tool-cache');
 
-try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+try {  
+  const kbldPath = await tc.downloadTool('https://github.com/k14s/kbld/releases/download/v0.23.0/kbld-linux-amd64');  
+  const cachedPath = await tc.cacheFile(kbldPath, 'kbld', '0.23.0');
+  core.addPath(cachedPath);
 } catch (error) {
   core.setFailed(error.message);
 }
