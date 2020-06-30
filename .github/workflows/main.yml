@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: jbrunton/test-gh-action@v1
+      uses: jbrunton/test-gh-action@master
       with:
         who-to-greet: 'Mona the Octocat'
     # Use the output from the `hello` step
